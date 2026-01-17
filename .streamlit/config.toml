@@ -1,0 +1,27 @@
+# .streamlit/config.toml
+# Streamlit config for a cleaner, more premium-looking UI.
+
+[server]
+# Good for larger screens + reduces UI glitches on some systems
+headless = true
+runOnSave = true
+enableCORS = false
+enableXsrfProtection = true
+maxUploadSize = 200
+
+[browser]
+gatherUsageStats = false
+
+[theme]
+# Keep it premium + close to your brand (royal blue vibe)
+base = "light"
+primaryColor = "#312994"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F6F7FB"
+textColor = "#111827"
+font = "sans serif"
+
+[client]
+# Small quality-of-life improvement for smoother rendering
+toolbarMode = "minimal"
+showErrorDetails = true

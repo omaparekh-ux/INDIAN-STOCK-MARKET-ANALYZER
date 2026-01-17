@@ -1,0 +1,258 @@
+/* assets/styles.css
+   Premium polish for Streamlit UI.
+   Presentation-only (no business-logic impact).
+*/
+
+/* ---------------------------------
+   Global layout & typography
+---------------------------------- */
+:root {
+  /* Brand / accents */
+  --om-accent: #312994;      /* OMTIRTH royal blue (from your brand system) */
+  --om-accent-2: #3c2a98;    /* alternate royal blue */
+  --om-text: #111827;
+
+  /* Surfaces */
+  --om-card-bg: rgba(255, 255, 255, 0.72);
+  --om-border: rgba(17, 24, 39, 0.10);
+  --om-shadow: 0 10px 30px rgba(17, 24, 39, 0.06);
+
+  /* Radius */
+  --om-r-lg: 18px;
+  --om-r-md: 14px;
+  --om-r-sm: 10px;
+}
+
+html, body {
+  scroll-behavior: smooth;
+}
+
+.block-container {
+  padding-top: 1.35rem;   /* slightly tighter */
+  padding-bottom: 2.2rem;
+}
+
+/* Reduce visual noise between stacked elements */
+div[data-testid="stVerticalBlock"] > div {
+  margin-bottom: 0.6rem;
+}
+
+/* Slightly calm default text */
+p, li, span {
+  color: var(--om-text);
+}
+
+/* ---------------------------------
+   Card containers
+---------------------------------- */
+.ui-card {
+  background: var(--om-card-bg);
+  border: 1px solid var(--om-border);
+  box-shadow: var(--om-shadow);
+  border-radius: var(--om-r-lg);
+  padding: 16px 18px;
+  backdrop-filter: blur(8px);
+}
+
+.ui-card.compact {
+  padding: 12px 14px;
+  border-radius: var(--om-r-md);
+}
+
+.ui-card .title {
+  font-size: 0.95rem;
+  font-weight: 750;
+  margin-bottom: 0.35rem;
+  color: var(--om-text);
+}
+
+.ui-card .big {
+  font-size: 1.45rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--om-text);
+}
+
+.ui-card .muted {
+  font-size: 0.85rem;
+  color: rgba(17, 24, 39, 0.62);
+  margin-top: 0.2rem;
+}
+
+/* Delta coloring */
+.ui-card .delta {
+  font-size: 0.9rem;
+  font-weight: 750;
+  margin-top: 0.25rem;
+}
+.ui-card .delta.pos { color: #0F766E; }
+.ui-card .delta.neg { color: #B42318; }
+.ui-card .delta.neu { color: rgba(17, 24, 39, 0.65); }
+
+/* ---------------------------------
+   Hero / header helpers
+---------------------------------- */
+.ui-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.ui-hero::before {
+  content: "";
+  position: absolute;
+  inset: -40px -60px auto -60px;
+  height: 160px;
+  background: radial-gradient(closest-side, rgba(49,41,148,0.18), transparent 70%);
+  pointer-events: none;
+}
+
+.ui-hero .subtitle {
+  color: rgba(17, 24, 39, 0.70);
+  font-size: 0.9rem;
+}
+
+/* ---------------------------------
+   Section headers
+---------------------------------- */
+.ui-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  margin: 10px 0 12px 0;
+}
+
+.ui-section h2 {
+  font-size: 1.15rem;
+  font-weight: 850;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.ui-section .hint {
+  font-size: 0.85rem;
+  color: rgba(17, 24, 39, 0.55);
+}
+
+/* ---------------------------------
+   Status pills / chips
+---------------------------------- */
+.ui-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-weight: 750;
+  font-size: 0.85rem;
+  background: rgba(255, 255, 255, 0.70);
+  border: 1px solid rgba(17, 24, 39, 0.12);
+  backdrop-filter: blur(8px);
+  white-space: nowrap;
+}
+
+.ui-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+}
+
+/* Pill tones */
+.ui-pill.ok    { border-color: rgba(15,118,110,0.35); }
+.ui-pill.info  { border-color: rgba(49,41,148,0.30); }
+.ui-pill.warn  { border-color: rgba(245,158,11,0.40); }
+.ui-pill.bad   { border-color: rgba(180,35,24,0.40); }
+
+.ui-dot.ok    { background: #0F766E; }
+.ui-dot.info  { background: var(--om-accent); }
+.ui-dot.warn  { background: #F59E0B; }
+.ui-dot.bad   { background: #B42318; }
+
+/* ---------------------------------
+   Sidebar refinement
+---------------------------------- */
+section[data-testid="stSidebar"] .block-container {
+  padding-top: 1.1rem;
+}
+
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] h3 {
+  letter-spacing: -0.01em;
+}
+
+/* Slightly soften sidebar separators */
+section[data-testid="stSidebar"] hr {
+  margin: 1rem 0;
+}
+
+/* ---------------------------------
+   Inputs & widgets polish
+---------------------------------- */
+input, textarea, [data-baseweb="select"] {
+  border-radius: 12px !important;
+}
+
+div[data-baseweb="select"] > div {
+  border-radius: 12px !important;
+}
+
+/* Tabs: make them feel cleaner */
+button[role="tab"] {
+  border-radius: 10px !important;
+  font-weight: 700 !important;
+}
+
+/* ---------------------------------
+   Tables & charts
+---------------------------------- */
+div[data-testid="stDataFrame"] {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+}
+
+canvas {
+  border-radius: 12px;
+}
+
+/* ---------------------------------
+   Expander polish
+---------------------------------- */
+details {
+  border-radius: 14px;
+}
+
+details > summary {
+  font-weight: 750;
+  font-size: 0.95rem;
+}
+
+/* ---------------------------------
+   Buttons
+---------------------------------- */
+button[kind="primary"] {
+  border-radius: 12px !important;
+  font-weight: 800 !important;
+}
+
+/* Hover subtle lift (Streamlit buttons render as <button>) */
+button:hover {
+  transform: translateY(-1px);
+  transition: transform 120ms ease;
+}
+
+/* ---------------------------------
+   Subtle separators
+---------------------------------- */
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(17, 24, 39, 0.15),
+    transparent
+  );
+  margin: 1.4rem 0;
+}

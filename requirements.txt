@@ -1,0 +1,49 @@
+# requirements.txt
+# AI Market Trend Analyzer (Streamlit) – production-ready dependencies
+# Locked after Phase 2 completion
+
+# =========================
+# UI
+# =========================
+streamlit>=1.52.0
+
+# =========================
+# Data collection / networking
+# =========================
+pytrends>=4.9.2
+requests>=2.32.0
+
+# IMPORTANT:
+# pytrends is NOT fully compatible with urllib3>=2.x
+# Locking urllib3 prevents Retry/method_whitelist crashes
+urllib3<2.0.0
+
+lxml>=6.0.0            # required internally by pytrends
+
+# =========================
+# Data handling
+# =========================
+pandas>=2.3.0
+numpy>=2.4.0
+
+# =========================
+# Forecasting & analytics
+# =========================
+scikit-learn>=1.8.0
+
+# =========================
+# NLP & sentiment analysis
+# =========================
+nltk>=3.9.2
+
+# =========================
+# Visualization
+# =========================
+plotly>=6.5.0
+matplotlib>=3.10.0
+
+# =========================
+# Persistence / storage
+# =========================
+# SQLite is used via Python stdlib (no external driver needed)
+# Kept explicit for clarity and future extensibility

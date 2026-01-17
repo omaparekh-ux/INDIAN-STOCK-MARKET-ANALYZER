@@ -1,0 +1,1 @@
+{"_ts": 1768048031.0987113, "data": {"meta": {"keyword": "soap", "method": "VADER", "fetched_at": "2026-01-10 12:27:11 UTC", "cached": false, "error": null}, "counts": {"positive": 0, "neutral": 0, "negative": 0, "total": 0}, "avg_compound": 0.0, "sentiment_0_100": 50.0, "scored": []}}
